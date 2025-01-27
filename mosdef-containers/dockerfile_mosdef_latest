@@ -1,0 +1,5 @@
+FROM chrisjonesbsu/gpuconda:latest
+
+RUN git clone https://github.com/mosdef-hub/mbuild.git
+RUN mamba env update -f mbuid/environment-dev.yml
+RUN pip install -e .

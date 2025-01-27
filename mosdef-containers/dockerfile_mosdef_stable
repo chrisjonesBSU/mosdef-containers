@@ -1,0 +1,3 @@
+FROM chrisjonesbsu/gpuconda:latest
+
+RUN mamba install -c conda-forge mbuild foyer gmso py3Dmol nglview openbabel 

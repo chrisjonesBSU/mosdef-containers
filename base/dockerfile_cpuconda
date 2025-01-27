@@ -1,0 +1,54 @@
+FROM library/ubuntu:24.04 
+
+# Install system dependencies
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        cmake \
+        wget \
+        curl \
+        git \
+        libtbb-dev \
+        libgl1-mesa-dev \
+	&& apt-get clean
+
+# Install miniforge
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+ENV PATH /opt/conda/bin:$PATH
+
+# By default running container starts bash shell
+CMD [ "/bin/bash" ]
+
+ENV CONDA_VERSION=24.11.2-1
+ENV CONDA_SHA256=c79c7326a846d6df9ec824e19ccc99454d8f5009e37888df301b23eef11280ca
+
+RUN wget https://github.com/conda-forge/miniforge/releases/download/${CONDA_VERSION}/Miniforge3-${CONDA_VERSION}-Linux-x86_64.sh -O miniforge.sh 
+
+RUN  echo "${CONDA_SHA256} miniforge.sh" > miniforge.sha256
+RUN sha256sum --status -c miniforge.sha256
+RUN mkdir -p /opt
+RUN bash miniforge.sh -b -p /opt/conda
+RUN rm miniforge.sh miniforge.sha256
+RUN ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
+RUN echo "conda activate base" >> ~/.bashrc
+RUN find /opt/conda/ -follow -type f -name '*.a' -delete
+RUN find /opt/conda/ -follow -type f -name '*.js.map' -delete
+RUN /opt/conda/bin/conda clean -afy
+RUN mamba update -n base --all -y
+
+WORKDIR /opt
+
+# Make RUN commands use `bash --login`: -- fixes conda init
+# https://pythonspeed.com/articles/activate-conda-dockerfile/
+SHELL ["/bin/bash", "--login", "-c"]
+
+# Prevent python from loading packages from outside the container
+# default empty pythonpath
+ENV PYTHONPATH=/ignore/pythonpath
+
+ENV PYTHONUSERBASE=/ignore/pythonpath
