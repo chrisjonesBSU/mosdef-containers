@@ -14,7 +14,7 @@ env:
   IMAGE_NAME: cpuconda
 
 jobs:
-  build_gpuconda:
+  build_cpuconda:
     runs-on: ubuntu-latest
 
     permissions:
@@ -36,6 +36,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./base/dockerfile_gpuconda
+          file: ./base/dockerfile_cpuconda
           push: true
           tags: ${{ env.REGISTRY }}/chrisjonesbsu/${{ env.IMAGE_NAME }}:latest
