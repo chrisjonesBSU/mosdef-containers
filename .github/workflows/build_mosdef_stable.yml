@@ -1,0 +1,41 @@
+name: build_mosdef_stable
+
+on:
+  push:
+    branches: [ main ]
+    # Run when container is changed
+    paths:
+        - 'mosdef-containers/dockerfile_mosdef_stable'
+  # Allows workflow to be manually triggered
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: cpu_mosdef_stable
+
+jobs:
+  build_cpuconda:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./mosdef-containers/dockerfile_mosdef_stable
+          push: true
+          tags: ${{ env.REGISTRY }}/chrisjonesbsu/${{ env.IMAGE_NAME }}:latest
