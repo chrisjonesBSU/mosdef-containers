@@ -38,4 +38,4 @@ jobs:
           context: .
           file: ./base/dockerfile_gpuconda
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ chrisjonesbsu }}/${{ env.IMAGE_NAME }}:latest
