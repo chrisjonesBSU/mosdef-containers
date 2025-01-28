@@ -50,6 +50,5 @@ jobs:
           context: .
           file: ./mosdef-containers/dockerfile_mosdef_latest
           push: true
-          tags: ${{ env.REGISTRY }}/chrisjonesbsu/${{ env.IMAGE_NAME }}:latest
           tags: chrisjonesbsu/mosdef-containers/${{ env.IMAGE_NAME }}:${{ env.DOCKER_TAG }}
 
