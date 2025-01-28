@@ -48,7 +48,7 @@ WORKDIR /opt
 # https://pythonspeed.com/articles/activate-conda-dockerfile/
 SHELL ["/bin/bash", "--login", "-c"]
 
-ENV CONDA_OVERRIDE_CUDA=12.0
+ENV CONDA_OVERRIDE_CUDA=11.8
 RUN mamba install -c conda-forge mbuild foyer gmso py3Dmol nglview openbabel jupyter python=3.11 hoomd=4*=*gpu* cudatoolkit=11.8
 RUN mamba list hoomd && echo 
 
