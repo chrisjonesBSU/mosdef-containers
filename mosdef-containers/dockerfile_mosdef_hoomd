@@ -1,0 +1,6 @@
+FROM chrisjonesbsu/gpuconda:latest
+
+ENV CONDA_OVERRIDE_CUDA=12.6
+
+RUN mamba install -c conda-forge mbuild foyer gmso py3Dmol nglview openbabel 
+RUN mamba install -c conda-forge hoomd=4*=*gpu* cudatoolkit=12.6
