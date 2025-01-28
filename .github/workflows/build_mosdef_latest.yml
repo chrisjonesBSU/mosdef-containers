@@ -1,20 +1,20 @@
-name: build_gpuconda
+name: build_mosdef_latest
 
 on:
   push:
     branches: [ main ]
     # Run when container is changed
     paths:
-        - 'base/dockerfile_gpuconda'
+        - 'mosdef-containers/dockerfile_mosdef_latest'
   # Allows workflow to be manually triggered
   workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: gpuconda
+  IMAGE_NAME: mosdef_latest
 
 jobs:
-  build_gpuconda:
+  build_mosdef_latest:
     runs-on: ubuntu-latest
 
     permissions:
@@ -36,6 +36,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./base/dockerfile_gpuconda
+          file: ./mosdef-containers/dockerfile_mosdef_latest
           push: true
           tags: ${{ env.REGISTRY }}/chrisjonesbsu/${{ env.IMAGE_NAME }}:latest

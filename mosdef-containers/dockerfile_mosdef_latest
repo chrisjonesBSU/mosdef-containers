@@ -1,6 +1,39 @@
-FROM chrisjonesbsu/cpuconda:latest
+FROM condaforge/miniforge3
 
+# Install system dependencies
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        cmake \
+        wget \
+        curl \
+        git \
+        libtbb-dev \
+        libgl1-mesa-dev \
+	&& apt-get clean
+
+# Install miniforge
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+ENV PATH /opt/conda/bin:$PATH
+
+# By default running container starts bash shell
+CMD [ "/bin/bash" ]
+RUN mamba update -n base --all -y
 RUN git clone https://github.com/mosdef-hub/mbuild.git
-RUN mamba env update -f mbuid/environment-dev.yml
+RUN mamba env update -n base -f mbuild/environment-dev.yml
 RUN pip install -e mbuild 
-RUN mamba install py3Dmol nglview openbabel 
+RUN mamba install py3Dmol nglview openbabel jupyter 
+
+# Make RUN commands use `bash --login`: -- fixes conda init
+# https://pythonspeed.com/articles/activate-conda-dockerfile/
+SHELL ["/bin/bash", "--login", "-c"]
+
+# Prevent python from loading packages from outside the container
+# default empty pythonpath
+ENV PYTHONPATH=/ignore/pythonpath
+ENV PYTHONUSERBASE=/ignore/pythonpath
+
