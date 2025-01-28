@@ -44,8 +44,6 @@ jobs:
           context: ./mosdef-containers/
           file: ./mosdef-containers/dockerfile_mosdef_latest
           push: true
-          tags:
+          tags: |
             chrisjonesbsu/mosdef-containers:${{ steps.get_tag.outputs.tag }}
             chrisjonesbsu/mosdef-containers:latest
-
-
