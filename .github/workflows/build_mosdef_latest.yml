@@ -25,8 +25,9 @@ jobs:
 
       - name: Set Docker Tag
         id: get_tag
-        run: echo "tag=mosdef_latest-$(date +%Y-%m-%d)" >> $GITHUB_ENV
-        echo "::set-output name=tag::mosdef_latest-$(date +%Y-%m-%d)"
+        run: | 
+          echo "tag=mosdef_latest-$(date +%Y-%m-%d)" >> $GITHUB_ENV
+          echo "::set-output name=tag::mosdef_latest-$(date +%Y-%m-%d)"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
