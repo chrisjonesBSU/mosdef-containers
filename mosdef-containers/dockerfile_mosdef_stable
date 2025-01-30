@@ -15,15 +15,31 @@ RUN apt-get update && \
         libgl1-mesa-dev \
 	&& apt-get clean
 
-# Install miniforge
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-
 ENV PATH /opt/conda/bin:$PATH
 
 # By default running container starts bash shell
 CMD [ "/bin/bash" ]
 RUN mamba update -n base --all -y
-RUN mamba install -c conda-forge mbuild foyer gmso py3Dmol nglview openbabel jupyter python=3.11
+# Clone Repos
+RUN git clone https://github.com/mosdef-hub/mbuild.git 
+RUN git clone https://github.com/mosdef-hub/gmso.git 
+RUN git clone https://github.com/mosdef-hub/foyer.git
+RUN mamba update -n base -f mbuild/environment-dev.yml
+# Install mBuild
+RUN git -C mbuild fetch --tags &&\
+  git -C mbuild checkout $(git -C mbuild describe --tags "$(git -C mbuild rev-list --tags --max-count=1)")
+RUN pip install mbuild 
+
+#Install GMSO
+RUN git -C gmso fetch --tags &&\
+  git -C gmso checkout $(git -C gmso describe --tags "$(git -C gmso rev-list --tags --max-count=1)")
+RUN pip install gmso 
+
+#Install Foyer
+RUN git -C foyer fetch --tags &&\
+  git -C foyer checkout $(git -C foyer describe --tags "$(git -C foyer rev-list --tags --max-count=1)")
+RUN pip install foyer
 
 # Make RUN commands use `bash --login`: -- fixes conda init
 # https://pythonspeed.com/articles/activate-conda-dockerfile/
