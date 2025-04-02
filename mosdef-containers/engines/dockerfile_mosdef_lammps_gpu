@@ -1,7 +1,7 @@
 FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
 
 # Install dependencies
-RUN apt-get update && apt-get install -y wget cmake g++ gcc git ninja-build libeigen3-dev 
+RUN apt-get update && apt-get install -y wget cmake g++ gcc git libeigen3-dev libjpeg-dev 
 
 # Install miniforge
 RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -O Miniforge3.sh && \
@@ -9,30 +9,43 @@ RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Minif
     rm Miniforge3.sh
 
 ENV PATH="/opt/miniforge3/bin:${PATH}"
-
-RUN conda init bash && \
-    conda update -n base --all -y && \ 
-    conda install python=3.12 pybind11 mbuild gmso foyer signac -y
-
 ENV PATH=/usr/local/cuda-12.2/bin:$PATH
 ENV LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
 ENV CC=gcc-11
 ENV CXX=g++-11
+ENV CONDA_PREFIX=/opt/miniforge3
 
-RUN git clone https://github.com/lammps/lammps.git && \
+# Install MoSDeF software
+CMD [ "/bin/bash" ]
+RUN conda init bash && \
+    echo "conda activate base" >> ~/.bashrc && \
+    conda update -n base --all -y && \ 
+    conda install -n base python=3.12 pybind11 mbuild gmso foyer signac -y && \
+    git clone https://github.com/lammps/lammps.git && \
     cd lammps && \
     mkdir build && \
     cd build && \
     cmake -C ../cmake/presets/most.cmake \
           -C ../cmake/presets/nolib.cmake \
-          -D CMAKE_INSTALL_PREFIX=. \
-          -D BUILD_MPI=off \
-          -D PKG_GPU=on \
-          -D GPU_API=cuda \
-          -D GPU_PREC=single \
-          -D GPU_ARCH="sm_60;sm_70;sm_75;sm_80" \
-          -D INSTALL_DOC=off \
-          -D INSTALL_EXAMPLES=off \
-          ../cmake
+          -DCMAKE_INSTALL_PREFIX=. \
+          -DBUILD_MPI=off \
+          -DPKG_PYTHON=on \
+          -DPython_EXECUTABLE=$CONDA_PREFIX/bin/python \
+          -DPKG_GPU=on \
+          -DGPU_API=cuda \
+          -DGPU_PREC=single \
+          -DGPU_ARCH="sm_60;sm_70;sm_75;sm_80" \
+          -DINSTALL_DOC=off \
+          -DINSTALL_EXAMPLES=off \
+          -DCMAKE_PREFIX_PATH=$CONDA_PREFIX \
+          ../cmake && \
+    cmake --build . --target all -j$(nproc)
 
-CMD ["/bin/bash"]
+# Install Lammps build
+RUN cd lammps && \
+    cmake --install build --prefix=$CONDA_PREFIX && \
+    #pip install build/cmake/python && \
+    lmp -h
+    #conda run -n base python -c "import lammps; print(lammps.__version__)"
+
+SHELL ["/bin/bash", "--login", "-c"]
