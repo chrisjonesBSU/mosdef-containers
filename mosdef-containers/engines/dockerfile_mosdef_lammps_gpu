@@ -1,7 +1,7 @@
 FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
 
 # Install dependencies
-RUN apt-get update && apt-get install -y wget cmake g++ gcc git libeigen3-dev libjpeg-dev 
+RUN apt-get update && apt-get install -y wget cmake g++ gcc git libeigen3-dev libjpeg-dev libpng-dev 
 
 # Install miniforge
 RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -O Miniforge3.sh && \
