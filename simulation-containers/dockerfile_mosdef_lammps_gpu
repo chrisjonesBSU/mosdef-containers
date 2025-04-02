@@ -20,20 +20,17 @@ ENV LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
 ENV CC=gcc-11
 ENV CXX=g++-11
 
-# Clone hoomd, switch to v5.1.1
-RUN git clone --recursive https://github.com/glotzerlab/hoomd-blue.git && \
-    cd hoomd-blue && \
-    git checkout v5.1.0 && \
-    git submodule update --init
-
-# Compile Hoomd
-WORKDIR /hoomd-blue
-RUN cmake -B build . \
-    -DCMAKE_CUDA_COMPILER=$(which nvcc) \
-    -DBUILD_METAL=OFF -DBUILD_HPMC=OFF -DBUILD_MPCD=OFF -DENABLE_GPU=ON \
-    -DHOOMD_LONGREAL_SIZE=32 -DENABLE_MPI=OFF -GNinja
-
-WORKDIR /hoomd-blue
-RUN ninja -C build -v
+RUN git clone https://github.com/lammps/lammps.git && \
+    mkdir build && \
+    cd build && \
+    cmake -C ../cmake/presets/most.cmake \
+          -C ../cmake/presets/nolib.cmake \
+          -D CMAKE_INSTALL_PREFIX=. \
+          -D BUILD_MPI=off \
+          -D PKG_GPU=on \
+          -D GPU_API=cuda \
+          -D INSTALL_DOC=off \
+          -D INSTALL_EXAMPLES=off \
+          ../
 
 CMD ["/bin/bash"]
