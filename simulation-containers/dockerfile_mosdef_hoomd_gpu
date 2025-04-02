@@ -1,0 +1,37 @@
+FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
+
+# Install dependencies
+RUN apt-get update && apt-get install -y wget cmake g++ gcc git ninja-build libeigen3-dev 
+
+RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -O Miniforge3.sh && \
+    bash Miniforge3.sh -b -p /opt/miniforge3 && \
+    rm Miniforge3.sh
+
+ENV PATH="/opt/miniforge3/bin:${PATH}"
+
+RUN conda init bash && \
+    conda update -n base --all -y && \ 
+    conda install python=3.12 pybind11 -y
+    #conda install mbuild gmso foyer -y
+
+
+ENV PATH=/usr/local/cuda-12.2/bin:$PATH
+ENV LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
+ENV CC=gcc-11
+ENV CXX=g++-11
+
+RUN git clone --recursive https://github.com/glotzerlab/hoomd-blue.git && \
+    cd hoomd-blue && \
+    git checkout v5.1.0
+
+WORKDIR /hoomd-blue
+
+RUN cmake -B build . \
+    -DCMAKE_CUDA_COMPILER=$(which nvcc) \
+    -DBUILD_METAL=OFF -DBUILD_HPMC=OFF -DBUILD_MPCD=OFF -DENABLE_GPU=ON \
+    -DHOOMD_LONGREAL_SIZE=32 -DENABLE_MPI=OFF -GNinja
+
+WORKDIR /hoomd-blue
+RUN ninja -C build -v
+
+CMD ["/bin/bash"]
