@@ -12,8 +12,7 @@ ENV PATH="/opt/miniforge3/bin:${PATH}"
 
 RUN conda init bash && \
     conda update -n base --all -y && \ 
-    conda install python=3.12 pybind11 -y
-    conda install mbuild gmso foyer signac -y
+    conda install python=3.12 pybind11 mbuild gmso foyer signac -y
 
 ENV PATH=/usr/local/cuda-12.2/bin:$PATH
 ENV LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
@@ -21,6 +20,7 @@ ENV CC=gcc-11
 ENV CXX=g++-11
 
 RUN git clone https://github.com/lammps/lammps.git && \
+    cd lammps && \
     mkdir build && \
     cd build && \
     cmake -C ../cmake/presets/most.cmake \
@@ -29,8 +29,10 @@ RUN git clone https://github.com/lammps/lammps.git && \
           -D BUILD_MPI=off \
           -D PKG_GPU=on \
           -D GPU_API=cuda \
+          -D GPU_PREC=single \
+          -D GPU_ARCH="sm_60;sm_70;sm_75;sm_80" \
           -D INSTALL_DOC=off \
           -D INSTALL_EXAMPLES=off \
-          ../
+          ../cmake
 
 CMD ["/bin/bash"]
