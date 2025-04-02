@@ -1,4 +1,4 @@
-name: build_mosdef_latest
+name: build_mosdef_hoomd_gpu
 
 on:
   push:
