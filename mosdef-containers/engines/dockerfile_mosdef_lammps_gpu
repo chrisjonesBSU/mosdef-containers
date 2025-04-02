@@ -36,7 +36,7 @@ RUN conda init bash && \
           -DPKG_GPU=on \
           -DGPU_API=cuda \
           -DGPU_PREC=single \
-          -DGPU_ARCH="sm_60;sm_70;sm_75;sm_80" \
+          -DGPU_ARCH="sm_50;sm_60;sm_70;sm_75;sm_80" \
           -DINSTALL_DOC=off \
           -DINSTALL_EXAMPLES=off \
           -DCMAKE_PREFIX_PATH=$CONDA_PREFIX \
@@ -45,10 +45,6 @@ RUN conda init bash && \
 
 # Install Lammps build
 RUN cd lammps && \
-    cmake --install build --prefix=$CONDA_PREFIX && \
-	ls build
-#pip install build/cmake/python && \
-#conda run -n base lmp -h
-    #conda run -n base python -c "import lammps; print(lammps.__version__)"
+    cmake --install build --prefix=$CONDA_PREFIX
 
 SHELL ["/bin/bash", "--login", "-c"]
