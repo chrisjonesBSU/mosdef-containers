@@ -12,7 +12,7 @@ env:
   IMAGE_NAME: mosdef_hoomd_gpu
 
 jobs:
-  build_mosdef_latest:
+  build_mosdef_hoomd_gpu:
     runs-on: ubuntu-latest
 
     permissions:
