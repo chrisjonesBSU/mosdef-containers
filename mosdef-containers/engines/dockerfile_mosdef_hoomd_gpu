@@ -18,6 +18,7 @@ ENV PATH=/usr/local/cuda-12.2/bin:$PATH
 ENV LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
 ENV CC=gcc-11
 ENV CXX=g++-11
+ENV CONDA_PREFIX=/opt/miniforge3
 
 # Clone hoomd, switch to v5.1.1
 RUN git clone --recursive https://github.com/glotzerlab/hoomd-blue.git && \
@@ -29,10 +30,16 @@ RUN git clone --recursive https://github.com/glotzerlab/hoomd-blue.git && \
 WORKDIR /hoomd-blue
 RUN cmake -B build . \
     -DCMAKE_CUDA_COMPILER=$(which nvcc) \
-    -DBUILD_METAL=OFF -DBUILD_HPMC=OFF -DBUILD_MPCD=OFF -DENABLE_GPU=ON \
-    -DHOOMD_LONGREAL_SIZE=32 -DENABLE_MPI=OFF -GNinja
+    -DBUILD_METAL=OFF \
+	-DBUILD_HPMC=OFF \
+	-DBUILD_MPCD=OFF \
+	-DENABLE_GPU=ON \
+    -DHOOMD_LONGREAL_SIZE=32 \
+	-DBUILD_TESTING=OFF \
+	-DENABLE_MPI=OFF -GNinja
 
-WORKDIR /hoomd-blue
-RUN ninja -C build -v
+WORKDIR /hoomd-blue/build
+RUN ninja -v && \
+	ninja install
 
-CMD ["/bin/bash"]
+SHELL ["/bin/bash", "--login", "-c"]
