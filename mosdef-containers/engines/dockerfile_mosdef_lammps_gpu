@@ -27,7 +27,7 @@ RUN conda init bash && \
     cd lammps && \
     mkdir build && \
     cd build && \
-    cmake -C ../cmake/presets/most.cmake \
+    cmake -C ../cmake/presets/basic.cmake \
           -C ../cmake/presets/nolib.cmake \
           -DCMAKE_INSTALL_PREFIX=. \
           -DBUILD_MPI=off \
@@ -36,7 +36,7 @@ RUN conda init bash && \
           -DPKG_GPU=on \
           -DGPU_API=cuda \
           -DGPU_PREC=single \
-          -DGPU_ARCH="sm_50;sm_60;sm_70;sm_75;sm_80" \
+          -DGPU_ARCH="sm_60;sm_70;sm_75;sm_80" \
           -DINSTALL_DOC=off \
           -DINSTALL_EXAMPLES=off \
           -DCMAKE_PREFIX_PATH=$CONDA_PREFIX \
