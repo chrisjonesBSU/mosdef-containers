@@ -25,9 +25,10 @@ def get_parameters():
     # Define parameters here
     # Example:
     parameters["num_molecules"] = [20]
-    parameters["kT"] = [1.4]
-    parameters["n_steps"] = [5e6]
+    parameters["temp"] = [350] # Kelvin
+    parameters["n_steps"] = [5e5]
     parameters["engine"] = ["hoomd"]
+    parameters["seed"] = [18]
     return list(parameters.keys()), list(product(*parameters.values()))
 
 
