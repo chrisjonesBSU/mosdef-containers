@@ -80,7 +80,7 @@ def lammps_simulation(job):
 def build_system(job):
     import mbuild as mb
     import gmso
-    from gmso.external import from_mbuild,
+    from gmso.external import from_mbuild
     from gmso.core.forcefield import ForceField
     from gmso.parameterization import apply
 
@@ -127,7 +127,7 @@ def run_hoomd(job):
             for force in hoomd_force_dict[force_type]:
                 hoomd_forces.append(force)
 
-        sim = hoomd.Simulation(device=hoomd.device.GPU(), seed=job.sp.seed) 
+        sim = hoomd.Simulation(device=hoomd.device.GPU(), seed=job.sp.seed)
         sim.create_state_from_snapshot(snapshot)
         integrator = hoomd.md.Integrator(dt=0.0001)
         integrator.forces = hoomd_forces
