@@ -20,7 +20,7 @@ CMD [ "/bin/bash" ]
 RUN conda init bash && \
     echo "conda activate base" >> ~/.bashrc && \
     conda update -n base --all -y && \ 
-    conda install -n base python=3.12 pybind11 mbuild gmso foyer signac signac-flow<0.27 -y && \
+    conda install -n base python=3.12 pybind11 mbuild gmso foyer signac "signac-flow<0.27" -y && \
 	echo "export LD_LIBRARY_PATH=\$CONDA_PREFIX/lib:\$LD_LIBRARY_PATH" >> ~/.bashrc && \
 	echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc && \
     git clone https://github.com/lammps/lammps.git && \
