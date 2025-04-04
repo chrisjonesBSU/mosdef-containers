@@ -26,6 +26,7 @@ def get_parameters():
     # Example:
     parameters["num_molecules"] = [20]
     parameters["temp"] = [350] # Kelvin
+    parameters["density"] = [0.6] # kg/m^3
     parameters["n_steps"] = [5e5]
     parameters["engine"] = ["hoomd"]
     parameters["seed"] = [18]

@@ -78,6 +78,7 @@ def lammps_simulation(job):
 
 
 def build_system(job):
+    import os
     import mbuild as mb
     import gmso
     from gmso.external import from_mbuild
@@ -87,7 +88,12 @@ def build_system(job):
     with job:
         print("Building system...")
         # Add your script here
-        methane = mb.load("C", smiles=True)
+        mol_file = os.path.join(
+                job.project.path,
+                "methane.mol2"
+        )
+        print(mol_file)
+        methane = mb.load(mol_file)
         box = mb.fill_box(
                 compound=methane,
                 n_compounds=job.sp.num_molecules,
@@ -115,12 +121,12 @@ def run_hoomd(job):
     import hoomd
     import unyt as u
 
-    from gmso.external import to_gsd_snapshot, to_hoomd_forcefield
+    from gmso.external import to_hoomd_snapshot, to_hoomd_forcefield
 
     with job:
         typed_system = build_system(job)
         base_units = {"mass": u.g / u.mol, "length": u.nm, "energy": u.kJ / u.mol}
-        snapshot, units = to_gsd_snapshot(typed_system, base_units=base_units)
+        snapshot, units = to_hoomd_snapshot(typed_system, base_units=base_units)
         hoomd_force_dict, units = to_hoomd_forcefield(typed_system, r_cut=1.5, base_units=base_units)
         hoomd_forces = []
         for force_type in hoomd_force_dict:
@@ -132,7 +138,7 @@ def run_hoomd(job):
         integrator = hoomd.md.Integrator(dt=0.0001)
         integrator.forces = hoomd_forces
 
-        temp = job.doc.temp * u.K
+        temp = job.sp.temp * u.K
         kT = temp.to_equivalent("kJ/mol", "thermal").value
         job.doc.kT = kT
         thermostat = hoomd.md.methods.thermostats.MTTK(kT=kT, tau=1.0)
@@ -148,7 +154,7 @@ def run_hoomd(job):
 
         sim.operations.computes.append(thermodynamic_properties)
         print("Starting simulation...")
-        sim.run(job.doc.n_steps)
+        sim.run(job.sp.n_steps)
         print("Finished simulation...")
         print("------------------------------------")
 
@@ -183,4 +189,4 @@ def sample(job):
 
 
 if __name__ == "__main__":
-    MyProject().main()
+    MyProject(environment=Borah).main()
