@@ -9,14 +9,7 @@ Docker containers can be pulled from [DockerHub](https://hub.docker.com/reposito
 ### Using Docker
 If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.
 
-<div style="display: flex; align-items: center;">
-  <img src=".images/docker.png" width="50" alt="Docker" />
-  <a href="https://docs.docker.com/engine/install" style="font-size: 15px; margin-left: 15px;">Docker Install</a>
-  <span style="font-size: 15px; margin: 0 15px;">|</span>
-  <a href="https://www.docker.com/get-started/" style="font-size: 15px; margin-left: 15px;">Docker Get Started</a>
-</div>
-
-<img src=".images/podman.png" width="50"/> [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
+<img src=".images/docker.png" width="50"/>[Docker Install](https://docs.docker.com/engine/install) **|** [### Docker Get Started](https://www.docker.com/get-started/)  <img src=".images/podman.png" width="50"/> [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
 
 **Pull the container from DockerHub**
 ```bash
