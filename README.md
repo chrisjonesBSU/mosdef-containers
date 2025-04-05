@@ -9,9 +9,9 @@ Docker containers cann be pulled from [here](https://hub.docker.com/repository/d
 ### Using Docker
 If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.
 
-- [Docker installation instrucitons](https://docs.docker.com/engine/install) || [Getting started with Docker](https://www.docker.com/get-started/) 
+<img src="https://icon.icepanel.io/Technology/svg/Docker.svg" width="30" height="30"/>[Docker installation instrucitons](https://docs.docker.com/engine/install) **|** [Getting started with Docker](https://www.docker.com/get-started/) 
 
-<img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="30" height="30" style="vertical-align: +20x;"/> [Podman Install](https://podman.io/docs/installation) | [Podman Get Started](https://podman.io/get-started) 
+<img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="30" height="30"/> [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started) 
 
 **Pull the container from DockerHub**
 ```bash
