@@ -1,5 +1,5 @@
 # MoSDeF Containers
-Docker containers for the Molecular Simulation Design Framework (MoSDeF)
+Docker containers for the [Molecular Simulation Design Framework (MoSDeF)](https://mosdef.org/)
 
 Docker containers can be pulled from [DockerHub](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
 
@@ -49,4 +49,6 @@ module load apptainer/1.2.5
 apptainer pull mosdef_hoomd_gpu.sif docker://chrisjonesbsu/mosdef-containers:mosdef_hoomd_gpu-2025-04-03
 apptainer exec --nv mosdef_hoomd_gpu.sif python hoomd_simulation.py
 ```
+
+## HPC and Research Examples 
 
