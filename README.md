@@ -10,6 +10,13 @@ Docker containers can be pulled from [DockerHub](https://hub.docker.com/reposito
 If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.
 
 <div style="display: flex; align-items: center;">
+  <img src=".images/docker.png" width="50" alt="Docker" style="vertical-align: middle;" />
+  <a href="https://docs.docker.com/engine/install" style="font-size: 20px; margin-left: 10px;">Docker Install</a>
+  <span style="font-size: 20px; margin: 0 10px;">|</span>
+  <a href="https://www.docker.com/get-started/" style="font-size: 20px; margin-left: 10px;">Docker Get Started</a>
+</div>
+
+<div style="display: flex; align-items: center;">
   <img src=".images/docker.png" width="50" alt="Docker" />
   <a href="https://docs.docker.com/engine/install" style="margin-left: 10px;">Docker Install</a>
   <span style="margin: 0 10px;">|</span>
