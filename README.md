@@ -11,15 +11,7 @@ If you want to use these containers on a personal computer (as opposed to a comp
 
 - [Docker installation instrucitons](https://docs.docker.com/engine/install) || [Getting started with Docker](https://www.docker.com/get-started/) 
 
-<img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="30" height="30" style="vertical-align: middle;"/> [Podman Install](https://podman.io/docs/installation) | [Podman Get Started](https://podman.io/get-started) 
-
-<span style="display: inline-flex; align-items: center; gap: 0.4em;">
-  <img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="20" height="20" />
-  <span>
-    <a href="https://podman.io/docs/installation">Podman installation instructions</a> ||
-    <a href="https://podman.io/get-started">Getting started with Podman</a>
-  </span>
-</span>
+<img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="30" height="30" style="vertical-align: -5px;"/> [Podman Install](https://podman.io/docs/installation) | [Podman Get Started](https://podman.io/get-started) 
 
 **Pull the container from DockerHub**
 ```bash
