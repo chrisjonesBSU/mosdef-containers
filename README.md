@@ -9,9 +9,9 @@ Docker containers can be pulled from [DockerHub](https://hub.docker.com/reposito
 ### Using Docker
 If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.
 
-<img src=".images/docker.svg" width="40" height="50"/>[### Docker Install](https://docs.docker.com/engine/install) **|** [### Docker Get Started](https://www.docker.com/get-started/)
+<img src=".images/docker.png" width="40" height="50"/>[### Docker Install](https://docs.docker.com/engine/install) **|** [### Docker Get Started](https://www.docker.com/get-started/)
 
-<img src=".images/podman.svg" width="30" height="50"/> [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
+<img src=".images/podman.png" width="30" height="50"/> [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
 
 **Pull the container from DockerHub**
 ```bash
@@ -30,7 +30,7 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 
 
 ### Using apptainer and/or singularity
-![apptainer image](".images/apptainer.png")
+![apptainer image](".images/apptainer.svg")
 [Apptainer](https://apptainer.org/) (formely Singularity) will allow use of these containers in high-performance computer clusters.
 Using these containers for scientific research ensures you are following best practices for reproducibility.
 
