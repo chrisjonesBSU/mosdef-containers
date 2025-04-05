@@ -13,6 +13,14 @@ If you want to use these containers on a personal computer (as opposed to a comp
 
 <img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="30" height="30" style="vertical-align: middle;"/> [Podman Install](https://podman.io/docs/installation) | [Podman Get Started](https://podman.io/get-started) 
 
+<span style="display: inline-flex; align-items: center; gap: 0.4em;">
+  <img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="20" height="20" />
+  <span>
+    <a href="https://podman.io/docs/installation">Podman installation instructions</a> ||
+    <a href="https://podman.io/get-started">Getting started with Podman</a>
+  </span>
+</span>
+
 **Pull the container from DockerHub**
 ```bash
 docker pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
