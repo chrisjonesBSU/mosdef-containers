@@ -15,7 +15,7 @@ ENV CC=gcc-11
 ENV CXX=g++-11
 ENV CONDA_PREFIX=/opt/miniforge3
 
-# Install MoSDeF software
+# Install MoSDeF software and compile LAMMPS
 CMD [ "/bin/bash" ]
 RUN conda init bash && \
     echo "conda activate base" >> ~/.bashrc && \

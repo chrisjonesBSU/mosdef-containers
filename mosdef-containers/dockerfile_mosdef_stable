@@ -13,7 +13,6 @@ RUN apt-get update && \
 
 # Install miniforge
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-
 ENV PATH /opt/conda/bin:$PATH
 
 # By default running container starts bash shell
