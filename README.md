@@ -1,7 +1,7 @@
 # MoSDeF Containers
 Docker containers for the Molecular Simulation Design Framework (MoSDeF)
 
-Docker containers cann be pulled from [DockerHub](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
+Docker containers can be pulled from [DockerHub](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
 
 
 ## Quick Examples
@@ -30,8 +30,7 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 
 
 ### Using apptainer and/or singularity
-<img src="https://github.com/apptainer/apptainer-logos/blob/main/SVG/Apptainer_h-logo_wht.svg" width="300"/>    
-
+![apptainer image](https://github.com/apptainer/apptainer-logos/blob/main/SVG/Apptainer_h-logo_wht.svg)
 [Apptainer](https://apptainer.org/) (formely Singularity) will allow use of these containers in high-performance computer clusters.
 Using these containers for scientific research ensures you are following best practices for reproducibility.
 
