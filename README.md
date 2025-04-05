@@ -3,7 +3,6 @@ Docker containers for the Molecular Simulation Design Framework (MoSDeF)
 
 Docker containers can be pulled from [DockerHub](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
 
-
 ## Quick Examples
 
 ### Using Docker
@@ -18,10 +17,7 @@ Docker containers can be pulled from [DockerHub](https://hub.docker.com/reposito
 
 [Docker Install](https://docs.docker.com/engine/install) **|** [Docker Get Started](https://www.docker.com/get-started/) **|** [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
 
-If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.  
-
-  
-  
+If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent, such as Podman, would be best.  
 
 **Pull the container from DockerHub**
 ```bash
