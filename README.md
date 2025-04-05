@@ -9,9 +9,9 @@ Docker containers can be pulled from [DockerHub](https://hub.docker.com/reposito
 ### Using Docker
 If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.
 
-<img src="https://icon.icepanel.io/Technology/svg/Docker.svg" width="40" height="40"/>[Docker Install](https://docs.docker.com/engine/install) **|** [Docker Get Started](https://www.docker.com/get-started/)
+<img src=".images/docker.svg" width="40" height="50"/>[### Docker Install](https://docs.docker.com/engine/install) **|** [### Docker Get Started](https://www.docker.com/get-started/)
 
-<img src="https://icon.icepanel.io/Technology/svg/Podman.svg" width="30" height="30"/> [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
+<img src=".images/podman.svg" width="30" height="50"/> [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
 
 **Pull the container from DockerHub**
 ```bash
@@ -30,7 +30,7 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 
 
 ### Using apptainer and/or singularity
-![apptainer image](https://github.com/apptainer/apptainer-logos/blob/main/SVG/Apptainer_h-logo_wht.svg)
+![apptainer image](.images/apptainer.png)
 [Apptainer](https://apptainer.org/) (formely Singularity) will allow use of these containers in high-performance computer clusters.
 Using these containers for scientific research ensures you are following best practices for reproducibility.
 
