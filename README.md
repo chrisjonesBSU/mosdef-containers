@@ -12,7 +12,7 @@ Docker containers can be pulled from [DockerHub](https://hub.docker.com/reposito
 </a>  
 &nbsp; &nbsp; 
 <a href="https://podman.io/">
-  <img src=".images/podman.png" width="100" />
+  <img src=".images/podman.png" width="80" />
 </a>
 
 If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.
