@@ -1,7 +1,7 @@
-# mosdef-containers
-Containers for the Molecular Simulation Design Framework (MoSDeF)
+# MoSDeF Containers
+Docker containers for the Molecular Simulation Design Framework (MoSDeF)
 
-Docker containers cann be pulled from [here](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
+Docker containers cann be pulled from [DockerHub](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
 
 
 ## Quick Examples
@@ -30,7 +30,16 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 
 
 ### Using apptainer and/or singularity
-Apptainer will allow use of these containers in high-performance computer clusters.
+<img src="https://apptainer.org/apptainer.svg", width=300/> 
+[Apptainer](https://apptainer.org/) (formely Singularity) will allow use of these containers in high-performance computer clusters.
 Using these containers for scientific research ensures you are following best practices for reproducibility.
 
-[Apptainer](https://apptainer.org/) is often available as a module 
+Apptainer is often available as a module on computer clusters and can be used to pull and run Docker containers.
+
+**Pull the container from DockerHub**
+```bash
+module load apptainer/1.2.5
+apptainer pull mosdef_hoomd_gpu.sif docker://chrisjonesbsu/mosdef-containers:mosdef_hoomd_gpu-2025-04-03
+apptainer exec --nv mosdef_hoomd_gpu.sif python hoomd_simulation.py
+```
+
