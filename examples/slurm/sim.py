@@ -14,7 +14,7 @@ def build_system():
     print("Building system...")
     # Add your script here
     print(mol_file)
-    methane = mb.load("C", smiles=True)
+    methane = mb.load(methane.mol2)
     box = mb.fill_box(
             compound=methane,
             n_compounds=50,
@@ -28,7 +28,6 @@ def build_system():
     print("Finished building system...")
     print("------------------------------------")
     return typed_box
-
 
 
 typed_system = build_system()
