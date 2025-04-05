@@ -30,7 +30,7 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 
 
 ### Using apptainer and/or singularity
-![apptainer image](.images/apptainer.png)
+![apptainer image](".images/apptainer.png")
 [Apptainer](https://apptainer.org/) (formely Singularity) will allow use of these containers in high-performance computer clusters.
 Using these containers for scientific research ensures you are following best practices for reproducibility.
 
