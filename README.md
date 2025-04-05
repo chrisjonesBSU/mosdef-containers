@@ -50,5 +50,5 @@ apptainer pull mosdef_hoomd_gpu.sif docker://chrisjonesbsu/mosdef-containers:mos
 apptainer exec --nv mosdef_hoomd_gpu.sif python hoomd_simulation.py
 ```
 
-## HPC and Research Examples 
+## More HPC and Research-based Examples 
 
