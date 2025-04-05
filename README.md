@@ -37,7 +37,7 @@ Using these containers for scientific research ensures you are following best pr
 
 Apptainer is often available as a module on computer clusters and can be used to pull and run Docker containers.
 
-**Pull the container from DockerHub**
+**Pull the container from DockerHub and use it to run a python file**
 ```bash
 module load apptainer/1.2.5
 apptainer pull mosdef_hoomd_gpu.sif docker://chrisjonesbsu/mosdef-containers:mosdef_hoomd_gpu-2025-04-03
