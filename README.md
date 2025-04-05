@@ -15,11 +15,13 @@ Docker containers can be pulled from [DockerHub](https://hub.docker.com/reposito
   <img src=".images/podman.png" width="80" />
 </a>
 
-If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.
 
 [Docker Install](https://docs.docker.com/engine/install) **|** [Docker Get Started](https://www.docker.com/get-started/) **|** [Podman Install](https://podman.io/docs/installation) **|** [Podman Get Started](https://podman.io/get-started)
 
+If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent would be best.  
 
+  
+  
 
 **Pull the container from DockerHub**
 ```bash
