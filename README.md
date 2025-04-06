@@ -63,7 +63,11 @@ apptainer pull mosdef_hoomd_gpu.sif docker://chrisjonesbsu/mosdef-containers:mos
 apptainer exec --nv mosdef_hoomd_gpu.sif python hoomd_simulation.py
 ```
 
-Here, the command is `apptainer exec --nv path-to-image-file executable path-to-script` where `mosdef_hoomd_gpu.sif` is the file created by `apptailer pull`, `python` is the executable and `hoomd_simulation.py` is the file to be ran in the container.
+The create a local image file (sif) the command is `apptainer pull name-of-local-image-file source-of-image`.
+`apptainer pull` grabs an image hosted on DockerHub and creates a new file stored locally..
+
+
+Next, to use the image file, the command is `apptainer exec --nv path-to-image-file executable path-to-script` where `mosdef_hoomd_gpu.sif` is the file created by `apptailer pull`, `python` is the executable and `hoomd_simulation.py` is the file to be ran in the container.
 The `--nv` flags ensures apptainer passes Nvidia information and resources to the containerized environment.
 
 ## More HPC and Research-based Examples 
