@@ -65,6 +65,6 @@ apptainer exec --nv mosdef_hoomd_gpu.sif python hoomd_simulation.py
 
 ## More HPC and Research-based Examples 
 The above are simple examples to illustrate how to pull and run a command with an image.
-More practical and indepth examples are provied in [examples](examples).
+Examples that are more applicable to perofrming research are provided in [examples](examples).
 These show how to use `apptainer` within a slurm submission script or within a [signac](https://docs.signac.io/en/latest/) project.
 The the `README.md` files within the examples for each for more information.
