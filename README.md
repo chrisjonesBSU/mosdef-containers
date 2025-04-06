@@ -64,7 +64,7 @@ apptainer exec --nv mosdef_hoomd_gpu.sif python hoomd_simulation.py
 ```
 
 To create a local image file (.sif) the command is `apptainer pull name-of-local-image-file source-of-image`.
-`apptainer pull` grabs an image hosted on DockerHub and creates a new file stored locally.
+The `apptainer pull` command grabs an image hosted on DockerHub and creates a new file stored locally.
 
 
 Next, to use the image file, the command is `apptainer exec --nv path-to-image-file executable path-to-script` where `mosdef_hoomd_gpu.sif` is the file created by `apptailer pull`, `python hoomd_simulation.py` is the command to be ran in the container.
