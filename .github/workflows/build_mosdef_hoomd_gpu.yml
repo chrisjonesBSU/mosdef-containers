@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-        - 'mosdef-containers/engines/dockerfile_mosdef_hoomd_gpu'
+        - 'mosdef-containers/dockerfile_mosdef_hoomd_gpu'
   # Allows workflow to be manually triggered
   workflow_dispatch:
 
@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./mosdef-containers/
-          file: ./mosdef-containers/engines/dockerfile_mosdef_hoomd_gpu
+          file: ./mosdef-containers/dockerfile_mosdef_hoomd_gpu
           push: true
           tags: |
             chrisjonesbsu/mosdef-containers:${{ steps.get_tag.outputs.tag }}
