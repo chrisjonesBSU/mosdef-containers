@@ -11,7 +11,7 @@ A summary of of the Docker images are as follows:
 | Image | Main Software | Notes |
 |----------|----------|----------|
 | mosdef_stable | mBuild, GMSO, Foyer | Includes the latest conda-forge releases for each package. |
-| mosdef_hoomd_gpu | mosdef_stable + Hoomd v5.1 | Compiled for GPU and single-precision. HPMC, and DPCD are disabled. |
+| mosdef_hoomd_gpu | mosdef_stable + Hoomd v5.1 | Compiled for GPU and single-precision. HPMC, DPCD, and MPI are disabled. |
 | mosdef_lammps_gpu | mosdef_stable + Lammps | Compiled for GPU and single-precision. Only basic Lammps plugins and features are included. |
 | mosdef_gromacs_gpu    | Coming Soon | More |
 | mosdef_gomc_gpu    | Coming Soon | More |
@@ -65,6 +65,6 @@ apptainer exec --nv mosdef_hoomd_gpu.sif python hoomd_simulation.py
 
 ## More HPC and Research-based Examples 
 The above are simple examples to illustrate how to pull and run a command with an image.
-More practical and indepth examples are provied in [examples](mosdef-containers/examples).
+More practical and indepth examples are provied in [examples](examples).
 These show how to use `apptainer` within a slurm submission script or within a [signac](https://docs.signac.io/en/latest/) project.
 The the `README.md` files within the examples for each for more information.
