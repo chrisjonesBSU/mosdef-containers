@@ -13,9 +13,9 @@ A summary of of the Docker images are as follows:
 | mosdef_stable | mBuild, GMSO, Foyer | Includes the latest conda-forge releases for each package. |
 | mosdef_hoomd_gpu | mosdef_stable + Hoomd v5.1 | Compiled for Nvidia GPUs and single-precision. HPMC, DPCD, and MPI are disabled. |
 | mosdef_lammps_gpu | mosdef_stable + Lammps | Compiled for Nvidia GPUs and single-precision. MPI is disabled, and only basic Lammps plugins and features are included. |
-| mosdef_gromacs_gpu | Coming Soon | More |
-| mosdef_gomc_gpu | Coming Soon | More |
-| mosdef_cassandra | Coming Soon | More |
+| mosdef_gromacs_gpu | Coming Soon | |
+| mosdef_gomc_gpu | Coming Soon | |
+| mosdef_cassandra | Coming Soon | |
 
 ## Quick Examples
 
