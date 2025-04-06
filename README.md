@@ -1,7 +1,7 @@
 # MoSDeF Containers
-Docker containers for the [Molecular Simulation Design Framework (MoSDeF)](https://mosdef.org/)
+This repository includes Docker files for the [Molecular Simulation Design Framework (MoSDeF)](https://mosdef.org/)
 
-Docker containers can be pulled from [DockerHub](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
+Pre-build Docker containers can be pulled from [DockerHub](https://hub.docker.com/repository/docker/chrisjonesbsu/mosdef-containers/general).
 
 ## Notes
 The `mosdef_stable` image provides the complete MoSDeF software stack and its depdencies, but ddoes not include the simulation engines that MoSDeF interfaces with.
