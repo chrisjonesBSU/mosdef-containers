@@ -19,7 +19,7 @@ ENV PATH /opt/conda/bin:$PATH
 # By default running container starts bash shell
 CMD [ "/bin/bash" ]
 RUN mamba update -n base --all -y && \
-	mamba install mbuild signac foyer gmso py3Dmol nglview openbabel jupyter python=3.12 -y
+	mamba install cassandra mbuild signac foyer gmso py3Dmol nglview openbabel jupyter python=3.12 -y
 
 # Make RUN commands use `bash --login`: -- fixes conda init
 # https://pythonspeed.com/articles/activate-conda-dockerfile/

@@ -12,7 +12,7 @@ ENV PATH="/opt/miniforge3/bin:${PATH}"
 
 RUN conda init bash && \
     conda update -n base --all -y && \ 
-    conda install python=3.12 pybind11 mbuild gmso foyer signac -y
+	conda install pybind11 mbuild foyer gmso py3Dmol nglview openbabel signac jupyter python=3.12
 
 ENV PATH=/usr/local/cuda-12.2/bin:$PATH
 ENV LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
