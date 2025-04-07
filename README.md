@@ -60,17 +60,18 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 **Pull the container from DockerHub**
 
 ```bash
-docker pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+podman pull docker.io/chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+
 ```
 
 **See docker images available locally**
 ```bash
-docker images
+podman images
 ```
 
 **Start an interactive shell with the container**
 ```bash
-docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+podman run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 ```
 </details> 
 
