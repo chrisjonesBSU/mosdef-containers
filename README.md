@@ -46,7 +46,7 @@ docker pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 <details> 
 <summary>🍶 Podman</summary>
 ```bash
-podman pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+podman pull docker.io/chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 ```
 </details> 
 
