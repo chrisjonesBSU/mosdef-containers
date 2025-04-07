@@ -19,7 +19,7 @@ A summary of of the Docker images are as follows:
 
 ## Quick Examples
 
-### Using Docker
+### Using Docker or Podman
 <a href="https://www.docker.com">
   <img src=".images/docker.png" width="100" />
 </a>  
