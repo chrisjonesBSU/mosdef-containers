@@ -76,7 +76,7 @@ podman run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 </details> 
 
 
-Note: Often times, Docker requires running with root privleges (i.e., using `sudo`).
+**Note**: Often times, Docker requires running with root privleges (i.e., using `sudo`).
 
 
 ### Using apptainer
