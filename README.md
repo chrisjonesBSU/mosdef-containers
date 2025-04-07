@@ -40,13 +40,15 @@ If you want to use these containers on a personal computer (as opposed to a comp
 
 ```bash
 docker pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
-
+```
 </details> 
+
 <details> 
 <summary>🍶 Podman</summary>
+```bash
 podman pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
-</details> 
 ```
+</details> 
 
 **See docker images available locally**
 
