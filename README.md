@@ -37,18 +37,18 @@ If you want to use these containers on a personal computer (as opposed to a comp
 <details>
 <summary>🐳 Docker Example</summary>
 
-**Pull the container from DockerHub**
+Pull the container from DockerHub
 
 ```bash
 docker pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 ```
 
-**See docker images available locally**
+See docker images available locally
 ```bash
 docker images
 ```
 
-**Start an interactive shell with the container**
+Start an interactive shell with the container
 ```bash
 docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 ```
@@ -61,19 +61,19 @@ The Podman commands are typically the same as Docker.
 However, Podman doesn't automatically look to DockerHub for hosted images when using the `pull` command.
 You can add `docker.io` to Podman's registres, or you can explicitly pull from `docker.io`.
 
-**Pull the container from DockerHub**
+Pull the container from DockerHub
 
 ```bash
 podman pull docker.io/chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 
 ```
 
-**See docker images available locally**
+See docker images available locally
 ```bash
 podman images
 ```
 
-**Start an interactive shell with the container**
+Start an interactive shell with the container
 ```bash
 podman run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 ```
