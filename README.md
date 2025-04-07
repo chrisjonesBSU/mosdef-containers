@@ -35,7 +35,7 @@ If you want to use these containers on a personal computer (as opposed to a comp
 
 
 <details>
-<summary>🛢️ Docker</summary>
+<summary>🛢️ Docker Example</summary>
 
 **Pull the container from DockerHub**
 
@@ -54,13 +54,25 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 ```
 </details> 
 
-<details> 
-<summary>🍶 Podman</summary>
+<details>
+<summary>🛢️ Podman Example</summary>
+
+**Pull the container from DockerHub**
+
 ```bash
-podman pull docker.io/chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+docker pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+```
+
+**See docker images available locally**
+```bash
+docker images
+```
+
+**Start an interactive shell with the container**
+```bash
+docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 ```
 </details> 
-
 
 
 Note: Often times, Docker requires running with root privleges (i.e., using `sudo`).
