@@ -34,19 +34,23 @@ A summary of of the Docker images are as follows:
 If you want to use these containers on a personal computer (as opposed to a compute cluster), using Docker or an equivalent, such as Podman, would be best.  
 
 **Pull the container from DockerHub**
+
+<details>
+<summary>🛢️ Docker</summary>
+
 ```bash
 docker pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+
+</details> <details> <summary>🍶 Podman</summary>
+podman pull chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
+</details> 
 ```
 
 **See docker images available locally**
-```bash
-docker images
-```
 
 **Start an interactive shell with the container**
-```bash
-docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
-```
+
+Note: Often times, Docker requires running with root privleges (i.e., using `sudo`).
 
 
 ### Using apptainer
