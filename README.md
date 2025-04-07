@@ -1,4 +1,5 @@
 [![mosdef_stable_build](https://github.com/chrisjonesBSU/mosdef-containers/actions/workflows/build_mosdef_stable.yml/badge.svg)](https://github.com/chrisjonesBSU/mosdef-containers/actions/workflows/build_mosdef_stable.yml)
+[![mosdef_hoomd_build](https://github.com/chrisjonesBSU/mosdef-containers/actions/workflows/build_mosdef_hoomd_gpu.yml/badge.svg)](https://github.com/chrisjonesBSU/mosdef-containers/actions/workflows/build_mosdef_stable.yml)
 
 # MoSDeF Containers
 This repository includes Docker files for the [Molecular Simulation Design Framework (MoSDeF)](https://mosdef.org/)
