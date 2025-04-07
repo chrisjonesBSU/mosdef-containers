@@ -1,0 +1,48 @@
+name: build_mosdef_cassandra
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+        - 'mosdef-containers/dockerfile_mosdef_cassandra'
+  # Allows workflow to be manually triggered
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME: mosdef_cassandra
+
+jobs:
+  build_mosdef_cassandra:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set Docker Tag
+        id: get_tag
+        run: | 
+          echo "tag=mosdef_cassandra-$(date +%Y-%m-%d)" >> $GITHUB_ENV
+          echo "::set-output name=tag::mosdef_cassandra-$(date +%Y-%m-%d)"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./mosdef-containers/
+          file: ./mosdef-containers/dockerfile_mosdef_cassandra
+          push: true
+          tags: |
+            chrisjonesbsu/mosdef-containers:${{ steps.get_tag.outputs.tag }}
