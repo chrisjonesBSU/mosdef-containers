@@ -35,7 +35,7 @@ If you want to use these containers on a personal computer (as opposed to a comp
 
 
 <details>
-<summary>🛢️ Docker Example</summary>
+<summary>🐳 Docker Example</summary>
 
 **Pull the container from DockerHub**
 
@@ -55,7 +55,7 @@ docker run -it chrisjonesbsu/mosdef-containers:mosdef_stable-2025-04-02
 </details> 
 
 <details>
-<summary>🛢️ Podman Example</summary>
+<summary>🦭 Podman Example</summary>
 
 **Pull the container from DockerHub**
 
