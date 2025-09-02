@@ -23,7 +23,7 @@ ENV CONDA_PREFIX=/opt/miniforge3
 # Clone hoomd, switch to v5.1.1
 RUN git clone --recursive https://github.com/glotzerlab/hoomd-blue.git && \
     cd hoomd-blue && \
-    git checkout v5.1.0 && \
+    git checkout v5.2.0 && \
     git submodule update --init
 
 # Compile Hoomd
