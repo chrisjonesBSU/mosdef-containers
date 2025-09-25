@@ -12,14 +12,18 @@ RUN apt-get update && \
 		libxml2-dev \
 	&& apt-get clean
 
-# Install miniforge
 ENV LANG C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 
 # By default running container starts bash shell
 CMD [ "/bin/bash" ]
-RUN mamba update -n base --all -y && \
-	mamba install mbuild gsd signac signac-flow foyer gmso py3Dmol nglview openbabel jupyter python=3.12 -y
+
+# Copy over base yml file
+COPY conda_files/mosdef.yml . 
+RUN conda init bash && \
+    conda update -n base --all -y && \
+    mamba env update -n base -f mosdef.yml && \
+    rm mosdef.yml
 
 # Make RUN commands use `bash --login`: -- fixes conda init
 # https://pythonspeed.com/articles/activate-conda-dockerfile/

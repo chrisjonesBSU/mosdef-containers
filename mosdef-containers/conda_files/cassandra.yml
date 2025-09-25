@@ -1,0 +1,5 @@
+name: cassandra 
+channels:
+  - conda-forge
+dependencies:
+  - cassandra=1.3.1

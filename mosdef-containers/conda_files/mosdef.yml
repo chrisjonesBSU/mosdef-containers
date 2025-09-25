@@ -1,0 +1,16 @@
+name: mosdef 
+channels:
+  - conda-forge
+dependencies:
+  - mbuild=1.2.1
+  - gmso=0.14.0
+  - foyer=1.0.1
+  - openbabel=3.1.1
+  - gsd=4.0
+  - freud=3.4
+  - py3Dmol=2.5.2
+  - nglview=3.1.4
+  - python=3.12
+  - signac=2.3.0 
+  - signac-flow=0.29.0
+  - jupyter

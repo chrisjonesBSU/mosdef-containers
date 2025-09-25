@@ -10,9 +10,13 @@ RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Minif
 
 ENV PATH="/opt/miniforge3/bin:${PATH}"
 
+COPY conda_files/mosdef.yml . 
+COPY conda_files/hoomd.yml . 
 RUN conda init bash && \
-    conda update -n base --all -y && \ 
-	conda install pybind11 mbuild foyer gmso gsd py3Dmol nglview openbabel signac "signac-flow<0.27" jupyter python=3.12
+    conda update -n base --all -y && \
+    mamba env update -n base -f mosdef.yml && \
+    mamba env update -n base -f hoomd.yml && \
+    rm mosdef.yml hoomd.yml
 
 ENV PATH=/usr/local/cuda-12.2/bin:$PATH
 ENV LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH
@@ -23,7 +27,7 @@ ENV CONDA_PREFIX=/opt/miniforge3
 # Clone hoomd, switch to v5.1.1
 RUN git clone --recursive https://github.com/glotzerlab/hoomd-blue.git && \
     cd hoomd-blue && \
-    git checkout v5.2.0 && \
+    git checkout v5.3.1 && \
     git submodule update --init
 
 # Compile Hoomd

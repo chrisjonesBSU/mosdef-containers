@@ -1,0 +1,5 @@
+name: hoomd 
+channels:
+  - conda-forge
+dependencies:
+  - pybind11=3.0.1
