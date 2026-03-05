@@ -11,13 +11,13 @@ RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Minif
 ENV PATH="/opt/miniforge3/bin:${PATH}"
 
 RUN conda init bash && \
-    conda install python=3.13 && \
+    conda update -n base --all -y $$ \
+	  conda install gsd>=4 numpy>=2 pybind11 nglview openbabel signac "signac-flow<0.27" jupyter row python=3.13 && \
     git clone https://github.com/mosdef-hub/mbuild.git && \
     git -C mbuild/ checkout develop && \
     sed -i '/hoomd/d' mbuild/environment-dev.yml && \
     sed -i '/gsd/d' mbuild/environment-dev.yml && \
-    conda env update -n base -f mbuild/environment-dev.yml && \
-	  conda install gsd pybind11 nglview openbabel signac "signac-flow<0.27" jupyter row python=3.13 && \
+    conda env update -n base mbuild/environment-dev.yml && \
     pip install -e mbuild
 
 ENV PATH=/usr/local/cuda-12.2/bin:$PATH
