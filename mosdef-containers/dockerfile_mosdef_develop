@@ -15,7 +15,7 @@ RUN conda init bash && \
     git clone https://github.com/mosdef-hub/mbuild.git && \
     sed -i '/hoomd/d' mbuild/environment-dev.yml && \
     conda env update -n base -f mbuild/environment-dev.yml && \
-	  conda install pybind11 mbuild foyer gmso gsd py3Dmol nglview openbabel signac "signac-flow<0.27" jupyter row python=3.12 && \
+	  conda install pybind11 mbuild foyer gmso gsd py3Dmol nglview openbabel signac "signac-flow<0.27" jupyter row python=3.13 && \
     pip install -e mbuild
 
 ENV PATH=/usr/local/cuda-12.2/bin:$PATH
