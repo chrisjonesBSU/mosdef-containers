@@ -10,6 +10,8 @@ RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Minif
 
 ENV PATH="/opt/miniforge3/bin:${PATH}"
 
+ARG CACHE_BUST=1
+
 RUN conda update -n base --all -y && \
 	  conda install -c conda-forge "gsd>=3" "numpy>=2.2" pybind11 nglview signac "signac-flow<0.27" jupyter row python=3.12 && \
     git clone https://github.com/mosdef-hub/mbuild.git && \
