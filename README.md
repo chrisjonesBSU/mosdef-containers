@@ -10,11 +10,12 @@ We provide images that build on top of `mosdef_stable` and also package a single
 A summary of of the Docker images are as follows:
 | Image | Main Software | Notes |
 |----------|----------|----------|
-| mosdef_stable | mBuild, GMSO, Foyer, Signac, Jupyter | Includes the latest conda-forge releases for each MoSDeF package. Uses Python 3.12|
-| mosdef_hoomd_gpu | mosdef_stable + Hoomd v5.2 | Compiled for Nvidia GPUs and single-precision. HPMC, DPCD, and MPI are disabled. |
+| mosdef_stable | mBuild, GMSO, Foyer, Signac, Jupyter | Includes the latest conda-forge releases for each MoSDeF package. Uses Python 3.13. |
+| mosdef_hoomd_gpu | mosdef_stable + Hoomd v6.1.1 | Compiled for Nvidia GPUs and single-precision. HPMC, DPCD, and MPI are disabled. |
 | mosdef_lammps_gpu | mosdef_stable + Lammps | Compiled for Nvidia GPUs and single-precision. MPI is disabled, and only basic Lammps plugins and features are included. |
 | mosdef_gromacs_gpu | mosdef_stable + Gromacs | Compiled from latest release for Nvidia GPUs and single-precision. MPI is disabled |
 | mosdef_cassandra | mosdef_stable + Cassandra v1.3.1 | Cassandra is installed from conda-forge. |
+| mosdef_develop | mBuild, GMSO, Foyer, Signac, Jupyter, Hoomd v6.1.1 | Installs all MoSDeF packages from source, including development branch of mBuild. HOOMD compiled for GPUS in single-precision.|
 | mosdef_gomc_gpu | Coming Soon | |
 
 ## Quick Examples
