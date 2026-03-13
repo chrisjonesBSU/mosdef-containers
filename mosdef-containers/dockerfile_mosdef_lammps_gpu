@@ -20,7 +20,7 @@ CMD [ "/bin/bash" ]
 RUN conda init bash && \
     echo "conda activate base" >> ~/.bashrc && \
     conda update -n base --all -y && \ 
-    conda install -n base python=3.12 signac signac-flow py3Dmol nglview openbabel mbuild gmso foyer jupyter -y && \
+    conda install -n base python=3.13 signac signac-flow row py3Dmol nglview mbuild=1.3.1 gmso=0.15 foyer=1.1 jupyter -y && \
 	echo "export LD_LIBRARY_PATH=\$CONDA_PREFIX/lib:\$LD_LIBRARY_PATH" >> ~/.bashrc && \
 	echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc && \
     git clone https://github.com/lammps/lammps.git && \
