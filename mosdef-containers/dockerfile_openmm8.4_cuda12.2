@@ -1,0 +1,30 @@
+#Use a base image with CUDA 12.2
+FROM docker.io/nvidia/cuda:12.2.2-devel-ubuntu22.04
+# Install dependencies
+RUN apt-get update && apt-get install -y wget cmake g++ gcc git libeigen3-dev libjpeg-dev libpng-dev 
+RUN apt-get update && apt-get install -y curl bzip2 tar cmake g++ gcc git ninja-build libeigen3-dev 
+# Install micromamba
+RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
+    | tar -xvj bin/micromamba && \
+    mkdir -p /opt/micromamba/bin && \
+    mv bin/micromamba /opt/micromamba/bin/ 
+ENV PATH=/opt/micromamba/bin:/usr/local/cuda/bin:${PATH}
+ENV MAMBA_ROOT_PREFIX=/opt/micromamba
+ENV CONDA_OVERRIDE_CUDA="12.2"
+RUN micromamba install -y -c conda-forge cmake swig numpy cython \
+  doxygen fftw setuptools 
+RUN git clone https://github.com/openmm/openmm.git &&\
+    cd openmm &&\
+    git checkout 8.4.0 &&\
+    mkdir build && cd build &&\
+    cmake .. \
+      -DCMAKE_INSTALL_PREFIX=/opt/micromamba/envs/base \
+      -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-12.2 \
+      -DOPENMM_BUILD_CUDA_LIB=ON \
+      -DOPENMM_BUILD_OPENCL_LIB=OFF \
+      -DPYTHON_EXECUTABLE=$(which python) &&\
+    make -j$(nproc) &&\
+    make install &&\
+    make PythonInstall
+#RUN ldd /opt/micromamba/envs/base/lib/libOpenMMCUDA.so | grep nvrtc
+SHELL ["/bin/bash", "--login", "-c"]
